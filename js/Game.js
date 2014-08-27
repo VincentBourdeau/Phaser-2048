@@ -43,6 +43,9 @@ BasicGame.Game.prototype = {
    	//	Tiles
     this.Tiles = new Tiles(this.game);
 
+    //  Create KeyBoard Inputs
+    this.cursors = this.input.keyboard.createCursorKeys();
+
   },
 
   /**
@@ -57,15 +60,6 @@ BasicGame.Game.prototype = {
     //	Tiles
     this.Tiles.create();
 
-    var me = this;
-    this.upKey = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-
-    this.downKey = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-
-    this.leftKey = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-
-    this.rightKey = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
-
     // at the beginning of the game we add two "2"
     this.Tiles.addTwo();
     this.Tiles.addTwo();
@@ -77,13 +71,13 @@ BasicGame.Game.prototype = {
     //	Tiles
     this.Tiles.update();
 
-    if (this.upKey.isDown) {
+    if (this.cursors.up.isDown) {
     	this.Tiles.moveUp();
-    } else if (this.downKey.isDown) {
+    } else if (this.cursors.down.isDown) {
     	this.Tiles.moveDown();
-    } else if (this.leftKey.isDown) {
+    } else if (this.cursors.left.isDown) {
     	this.Tiles.moveLeft();
-    } else if (this.rightKey.isDown) {
+    } else if (this.cursors.right.isDown) {
     	this.Tiles.moveRight();
     }
 
